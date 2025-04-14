@@ -1,4 +1,18 @@
 #include <stdio.h>
+#include <stdint.h>
+#include <inttypes.h>
+
+void showHex(unsigned char* cp,int size){
+	if(4==size){
+		unsigned int* p=(unsigned char*)cp;
+		printf("%#X\n", *p);
+	}
+
+	if(8==size){
+		 uint64_t num = *(uint64_t*)cp;
+                 printf("0x%016" PRIx64 "\n", num);
+	}
+}
 
 void showByte(unsigned char* p, int size){
 	for(int index=size-1;index>=0;index--){
@@ -10,7 +24,10 @@ void showByte(unsigned char* p, int size){
 		printf("   ");
 		}	
 		printf("\n");
+		showHex(p,size);
+		printf("\n");
 }
+
 int main(){
 	char type;
 	int size;
