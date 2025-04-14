@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <inttypes.h>
-
+#include <string.h>
 void showHex(unsigned char* cp,int size){
 	if(4==size){
-	unsigned int* p = (unsigned int*)(void*)cp;
-		printf("%#X\n", *p);
-	}
+		//unsigned int* p = (unsigned int*)(void*)cp;
+		//printf("%#X\n", *p);
+		uint32_t num;
+		memcpy(&num, cp, sizeof(num));  // 安全复制 4 字节
+		printf("0x%08" PRIx32 "\n", num);}
 
 	if(8==size){
 		 uint64_t num = *(uint64_t*)cp;
+		 memcpy(&num, cp, sizeof(num));  // 安全复制 8字节
                  printf("0x%016" PRIx64 "\n", num);
 	}
 }
