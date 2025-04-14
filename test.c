@@ -4,7 +4,7 @@
 
 void showHex(unsigned char* cp,int size){
 	if(4==size){
-		unsigned int* p=(unsigned char*)cp;
+	unsigned int* p = (unsigned int*)(void*)cp;
 		printf("%#X\n", *p);
 	}
 
