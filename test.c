@@ -32,9 +32,10 @@ int main(){
 	char type;
 	int size;
 	unsigned char* p;
-	printf("请选择数据类型：（1.退出 2.int 3.float 4.double）:\n");
 	do{
-	type=getchar();
+	printf("请选择数据类型：（1.退出 2.int 3.float 4.double）:\n");
+	//type=getchar();注意getchar和scanf的区别，getchar会多一个换行，导致多打印一行菜单
+   	scanf(" %c", &type);
 	switch(type){
 	case '1':
 	   break;
